@@ -27,3 +27,8 @@ shape = SubResource("CircleShape2D_lvxji")
 modulate = Color(0.3019608, 1, 0.22745098, 1)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_p47bc")
+
+[node name="dash_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
