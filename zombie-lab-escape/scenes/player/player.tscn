@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdrt0fpl2gi5f"]
 
 [ext_resource type="Script" uid="uid://saicthmx7j5u" path="res://scenes/player/Player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream Jam 2025 Art/Player/playersprite.png" id="2_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 21.189621
@@ -10,7 +10,7 @@ radius = 21.189621
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gmlin")
+"texture": ExtResource("2_dovo2")
 }],
 "loop": true,
 "name": &"default",
@@ -24,8 +24,9 @@ script = ExtResource("1_dovo2")
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.3019608, 1, 0.22745098, 1)
-scale = Vector2(0.3, 0.3)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-18, -2)
 sprite_frames = SubResource("SpriteFrames_p47bc")
 
 [node name="dash_cooldown" type="Timer" parent="."]
