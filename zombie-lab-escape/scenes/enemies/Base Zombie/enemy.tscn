@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://l2j8vaiw3wyd"]
 
 [ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="1_fqkhf"]
-[ext_resource type="Script" uid="uid://b8v1bu12sr0wf" path="res://scenes/enemies/Zombie_1/enemy.gd" id="1_td0e1"]
+[ext_resource type="Script" uid="uid://b8v1bu12sr0wf" path="res://scenes/enemies/Base Zombie/enemy.gd" id="1_td0e1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_td0e1"]
 radius = 20.880613
