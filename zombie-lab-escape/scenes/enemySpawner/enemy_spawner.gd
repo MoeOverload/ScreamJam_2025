@@ -21,4 +21,3 @@ func _on_spawn_timer_timeout() -> void:
 	new_zombie.position = $Marker2D.position
 	SpawnerGlobal.nz_spawn_number += 1
 	print("spawning number",SpawnerGlobal.nz_spawn_number)
-
