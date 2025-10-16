@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream_Jam_2025_Art/Player/playersprite.png" id="2_dovo2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-height = 59.38
+radius = 5.0
+height = 54.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
 animations = [{
@@ -22,6 +23,7 @@ script = ExtResource("1_dovo2")
 speed = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
