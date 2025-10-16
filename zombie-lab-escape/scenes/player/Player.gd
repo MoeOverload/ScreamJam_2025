@@ -1,65 +1,85 @@
 extends CharacterBody2D
 
-# Build a player state machine using enum
+#build a player state machine using enum
+
 
 var enemy
 var damaged = false
-var direction
+var direction 
+
 @export var player_health = 200
 @export var speed = 200
-@export var dash_speed = 250
 @export var dash_duration = 0.2  # Duration of the dash in seconds
-# var can_dash = true
-var move = Vector2()
-# var dash_timer = 0.0
-# var dash_multiplier = 1.7
-# var is_dashing
-# all the dash setup ^^
 
-func _physics_process(_delta):
-	move = Vector2.ZERO  # <-- reset movement at the start of the frame
+var can_dash = true
+var can_fire = true
 
-	if Input.is_action_pressed("right"):
-		move.x += 1
-	if Input.is_action_pressed("left"):
-		move.x -= 1
-	if Input.is_action_pressed("down"):
-		move.y += 1
-	if Input.is_action_pressed("up"):
-		move.y -= 1
+var dash_timer = 0.0
+var dash_multiplier = 1.8
+var is_dashing
+func shoot():
+	var bullet_scene = preload("res://scenes/bullet/bullet.tscn")
+	var new_bullet = bullet_scene.instantiate()
+	new_bullet.global_position = global_position
+	var mouse_position = get_global_mouse_position()
+	var bullet_direction = (mouse_position - global_position).normalized() 
+	new_bullet.direction = bullet_direction
+	get_tree().current_scene.add_child(new_bullet)
+	new_bullet.position = self.position 
+	can_fire = false
+	print("shooting")
+	$shooting_cooldown.start()
 
-	# --- dash logic (commented) ---
-	# if Input.is_action_just_pressed("dash") and can_dash:
-	#     is_dashing = true
-	#     dash_timer = dash_duration
-	#     can_dash = false
-	#     $dash_cooldown.start()
+func dash():
+	# Handle dash function
+		is_dashing = true
+		dash_timer = dash_duration
+		can_dash = false
+		$dash_cooldown.start()
 
-	# if is_dashing:
-	#     velocity = move.normalized() * dash_multiplier * dash_speed
-	#     dash_timer -= delta
-	#     if dash_timer <= 0:
-	#         is_dashing = false
-	# else:
-	velocity = move.normalized() * speed  # <-- FIXED: assign to CharacterBody2D velocity
+func get_input(delta):
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
 
-	# Move the player
-	move_and_slide()  # <-- works nowaaaaaaa
+	if is_dashing:
+		velocity = input_direction.normalized() * dash_multiplier  * speed
+		dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false
+func _physics_process(delta):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_fire:
+		shoot()
+	if Input.is_action_just_pressed("dash") and can_dash:
+		dash()
+	get_input(delta)
+	move_and_slide()
 
-# --- damage detection ---
+
+
+	
+	
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true
+
 func _on_damage_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy_hitbox'):
 		enemy = area
 		damaged = true
-		# current_state = State.damaged
+		#current_state = State.damaged
+		
 
 func player_hit():
 	player_health -= 20
-	if enemy:
-		direction = (enemy.global_position - self.global_position).normalized()  # <-- FIXED: correct direction vector
-		velocity = direction * 300
+	direction = (enemy.global_position + self.global_position).normalized()
+	velocity = (direction * speed )* 300
 	print(player_health)
-	damaged = false
+	damaged = false 
+
+func _on_shooting_cooldown_timeout() -> void:
+	can_fire = true
+	
+
 
 func _on_damage_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group('enemy_hitbox'):

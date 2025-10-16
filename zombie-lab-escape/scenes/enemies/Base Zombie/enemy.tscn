@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://l2j8vaiw3wyd"]
 
-[ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="1_fqkhf"]
 [ext_resource type="Script" uid="uid://b8v1bu12sr0wf" path="res://scenes/enemies/Base Zombie/enemy.gd" id="1_td0e1"]
+[ext_resource type="Texture2D" uid="uid://b3l56j743npob" path="res://Scream_Jam_2025_Art/Enemies/base_zombie_male.png" id="2_kmoat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_td0e1"]
 radius = 20.880613
@@ -10,7 +10,7 @@ radius = 20.880613
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fqkhf")
+"texture": ExtResource("2_kmoat")
 }],
 "loop": true,
 "name": &"default",
@@ -24,6 +24,4 @@ script = ExtResource("1_td0e1")
 shape = SubResource("CircleShape2D_td0e1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0, 0.105882354, 1)
-scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_8gci1")
