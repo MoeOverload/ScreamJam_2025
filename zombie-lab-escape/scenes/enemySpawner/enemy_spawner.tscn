@@ -7,6 +7,7 @@ z_as_relative = false
 script = ExtResource("1_op38u")
 
 [node name="spawn_timer" type="Timer" parent="."]
+wait_time = 0.286
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

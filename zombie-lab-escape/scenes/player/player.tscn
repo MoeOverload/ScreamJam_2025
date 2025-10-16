@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 speed = 150
 

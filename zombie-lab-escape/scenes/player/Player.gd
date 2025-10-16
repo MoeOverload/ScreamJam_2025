@@ -17,6 +17,8 @@ var can_fire = true
 var dash_timer = 0.0
 var dash_multiplier = 1.8
 var is_dashing
+
+
 func shoot():
 	var bullet_scene = preload("res://scenes/bullet/bullet.tscn")
 	var new_bullet = bullet_scene.instantiate()
@@ -27,15 +29,14 @@ func shoot():
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.position = self.position 
 	can_fire = false
-	print("shooting")
 	$shooting_cooldown.start()
 
 func dash():
 	# Handle dash function
-		is_dashing = true
-		dash_timer = dash_duration
-		can_dash = false
-		$dash_cooldown.start()
+	is_dashing = true
+	dash_timer = dash_duration
+	can_dash = false
+	$dash_cooldown.start()
 
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")

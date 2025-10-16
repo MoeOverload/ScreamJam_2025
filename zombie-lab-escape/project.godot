@@ -22,6 +22,9 @@ SpawnerGlobal="*res://scripts/spawner_global.gd"
 [global_group]
 
 bullet=""
+Player=""
+nz_enemy_head=""
+nz_enemy_body=""
 
 [input]
 
