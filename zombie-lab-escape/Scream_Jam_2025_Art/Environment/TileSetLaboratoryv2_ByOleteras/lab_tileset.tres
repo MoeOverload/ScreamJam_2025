@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://cxkwhxbxr4kk1"]
+[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://cxkwhxbxr4kk1"]
 
 [ext_resource type="Texture2D" uid="uid://hbdvxs43uwum" path="res://Scream_Jam_2025_Art/Environment/TileSetLaboratoryv2_ByOleteras/LaboratoryTilesetV2.png" id="1_14j63"]
 
@@ -28,6 +28,12 @@ tile_data = PackedInt32Array(131072, 458752, 2, 131073, 393216, 268435458, 2, 19
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5abvc"]
 tile_data = PackedInt32Array(0, 196608, 536870915, 65536, 196608, 536870915, 131072, 327680, 536870914, 131073, 393216, 2, 131074, 458752, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_bt1c8"]
+tile_data = PackedInt32Array(0, 196608, 1610612737, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 196608, 1610612737, 1, 196608, 0, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 262145, 196608, 0, 2, 196608, 0, 65538, 196608, 6, 131074, 196608, 6, 196610, 196608, 6, 262146, 196608, 0, 3, 196608, 1342177281, 65539, 196608, 6, 131075, 196608, 6, 196611, 196608, 6, 262147, 524288, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hbj7w"]
+tile_data = PackedInt32Array(0, 262144, 6, 65536, 262144, 7, 1, 327680, 6, 65537, 327680, 7)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0njel"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 458752, 0, 458752, 458752, 2, 524288, 458752, 0, 1, 393216, 2, 65537, 458752, 0, 458753, 458752, 3, 524289, 458752, 0, 2, 458752, 2, 65538, 458752, 0, 458754, 393216, 2, 524290, 458752, 0, 3, 458752, 2, 65539, 458752, 0, 458755, 458752, 2, 524291, 458752, 0, 4, 327680, 268435458, 65540, 196608, 268435457, 131076, 196608, 268435458, 196612, 196608, 268435459, 262148, 196608, 268435459, 327684, 196608, 268435459, 393220, 196608, 268435459, 458756, 458752, 3, 524292, 458752, 0)
@@ -179,3 +185,5 @@ pattern_13 = SubResource("TileMapPattern_xim5p")
 pattern_14 = SubResource("TileMapPattern_cluna")
 pattern_15 = SubResource("TileMapPattern_exdrc")
 pattern_16 = SubResource("TileMapPattern_5abvc")
+pattern_17 = SubResource("TileMapPattern_bt1c8")
+pattern_18 = SubResource("TileMapPattern_hbj7w")
