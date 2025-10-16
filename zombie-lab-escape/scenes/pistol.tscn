@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://btrmqghaekm2n"]
+
+[ext_resource type="Script" uid="uid://bh5r6su324ogc" path="res://scenes/pistol.gd" id="1_buff3"]
+[ext_resource type="Texture2D" uid="uid://66ow2st7g32a" path="res://Scream_Jam_2025_Art/Weapons/coolGun.png" id="1_igbvm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igbvm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_igbvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pistol" type="Node2D"]
+script = ExtResource("1_buff3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(3, -1)
+sprite_frames = SubResource("SpriteFrames_igbvm")
