@@ -3,14 +3,14 @@ extends Sprite2D
 var direction = Vector2.ZERO
 
 func _ready():
-    $bullet_queuefree_time.start()
+	$bullet_queuefree_time.start()
 
 
 
 func _process(delta: float) -> void:
-    if direction != Vector2.ZERO:
-        position += direction * speed * delta
+	if direction != Vector2.ZERO:
+		position += direction * speed * delta
 
 
 func _on_bullet_queuefree_time_timeout() -> void:
-    self.queue_free()
+	self.queue_free()

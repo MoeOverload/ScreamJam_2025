@@ -53,6 +53,12 @@ func _physics_process(delta):
 		dash()
 	get_input(delta)
 	move_and_slide()
+	# --- collision handling ---
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			velocity = velocity.slide(collision.get_normal())
+
 
 
 
