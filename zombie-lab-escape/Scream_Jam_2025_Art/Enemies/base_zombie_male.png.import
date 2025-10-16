@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d15pjadimd57e"
-path="res://.godot/imported/skinny_zombie_male.png-baccfca4c53beeae7f5211b6ff7e69b9.ctex"
+uid="uid://b3l56j743npob"
+path="res://.godot/imported/base_zombie_male.png-dcef5852389d08dc61ab62db44e2e7cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scream Jam 2025 Art/Enemies/skinny_zombie_male.png"
-dest_files=["res://.godot/imported/skinny_zombie_male.png-baccfca4c53beeae7f5211b6ff7e69b9.ctex"]
+source_file="res://Scream_Jam_2025_Art/Enemies/base_zombie_male.png"
+dest_files=["res://.godot/imported/base_zombie_male.png-dcef5852389d08dc61ab62db44e2e7cb.ctex"]
 
 [params]
 

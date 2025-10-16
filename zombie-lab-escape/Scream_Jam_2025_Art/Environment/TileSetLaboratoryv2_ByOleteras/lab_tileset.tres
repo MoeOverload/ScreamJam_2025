@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cxkwhxbxr4kk1"]
 
-[ext_resource type="Texture2D" uid="uid://hbdvxs43uwum" path="res://Scream Jam 2025 Art/Environment/TileSetLaboratoryv2_ByOleteras/LaboratoryTilesetV2.png" id="1_j0wyp"]
+[ext_resource type="Texture2D" uid="uid://hbdvxs43uwum" path="res://Scream_Jam_2025_Art/Environment/TileSetLaboratoryv2_ByOleteras/LaboratoryTilesetV2.png" id="1_14j63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecxtr"]
-texture = ExtResource("1_j0wyp")
+texture = ExtResource("1_14j63")
 margins = Vector2i(1, 1)
 separation = Vector2i(1, 1)
 0:0/0 = 0
