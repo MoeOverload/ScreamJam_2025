@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5c6m1evv44ef"
-path="res://.godot/imported/playersprite.png-2ef142a20df38fd3c199add55308502f.ctex"
+uid="uid://buqxhuk5mxlmr"
+path="res://.godot/imported/gun.png-a1431152a1aec27b60fe72bb86c5b302.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scream Jam 2025 Art/Player/playersprite.png"
-dest_files=["res://.godot/imported/playersprite.png-2ef142a20df38fd3c199add55308502f.ctex"]
+source_file="res://Scream_Jam_2025_Art/Weapons/gun.png"
+dest_files=["res://.godot/imported/gun.png-a1431152a1aec27b60fe72bb86c5b302.ctex"]
 
 [params]
 

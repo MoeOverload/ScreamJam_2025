@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca8mpoeq0qx8q"
-path="res://.godot/imported/bofas_Tilemap.png-c918a15d401e2164596481a03030f204.ctex"
+path="res://.godot/imported/bofas_Tilemap.png-def43c5078c3014d13d4017aa00aa9cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scream Jam 2025 Art/Environment/Ground, Bushes, etc/bofas_Tilemap.png"
-dest_files=["res://.godot/imported/bofas_Tilemap.png-c918a15d401e2164596481a03030f204.ctex"]
+source_file="res://Scream_Jam_2025_Art/Environment/Ground_Bushes_etc/bofas_Tilemap.png"
+dest_files=["res://.godot/imported/bofas_Tilemap.png-def43c5078c3014d13d4017aa00aa9cc.ctex"]
 
 [params]
 

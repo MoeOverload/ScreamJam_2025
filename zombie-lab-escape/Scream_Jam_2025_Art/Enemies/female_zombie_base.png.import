@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk7t8mou554gq"
-path="res://.godot/imported/axe.png-ab9c9bb45bdf64a2bfbaee4eae6a09ab.ctex"
+uid="uid://cauw1b0k1l6gp"
+path="res://.godot/imported/female_zombie_base.png-0915150ba43c0cd88682cbdb99fb67f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scream Jam 2025 Art/Weapons/axe.png"
-dest_files=["res://.godot/imported/axe.png-ab9c9bb45bdf64a2bfbaee4eae6a09ab.ctex"]
+source_file="res://Scream_Jam_2025_Art/Enemies/female_zombie_base.png"
+dest_files=["res://.godot/imported/female_zombie_base.png-0915150ba43c0cd88682cbdb99fb67f8.ctex"]
 
 [params]
 

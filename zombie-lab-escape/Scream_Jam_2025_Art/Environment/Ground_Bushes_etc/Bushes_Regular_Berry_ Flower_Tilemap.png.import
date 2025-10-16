@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3l56j743npob"
-path="res://.godot/imported/base_zombie_male.png-cd4c121eac9bb7aa91788301f385add8.ctex"
+uid="uid://ymi1x1kbm8r6"
+path="res://.godot/imported/Bushes_Regular_Berry_ Flower_Tilemap.png-40258c43a20e1d0c1c7c725ae467a42b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scream Jam 2025 Art/Enemies/base_zombie_male.png"
-dest_files=["res://.godot/imported/base_zombie_male.png-cd4c121eac9bb7aa91788301f385add8.ctex"]
+source_file="res://Scream_Jam_2025_Art/Environment/Ground_Bushes_etc/Bushes_Regular_Berry_ Flower_Tilemap.png"
+dest_files=["res://.godot/imported/Bushes_Regular_Berry_ Flower_Tilemap.png-40258c43a20e1d0c1c7c725ae467a42b.ctex"]
 
 [params]
 
