@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://l2j8vaiw3wyd"]
+[gd_scene load_steps=7 format=3 uid="uid://l2j8vaiw3wyd"]
 
 [ext_resource type="Script" uid="uid://b8v1bu12sr0wf" path="res://scenes/enemies/Base Zombie/enemy.gd" id="1_td0e1"]
 [ext_resource type="Texture2D" uid="uid://b3l56j743npob" path="res://Scream_Jam_2025_Art/Enemies/base_zombie_male.png" id="2_kmoat"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_td0e1"]
-radius = 20.880613
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmoat"]
+radius = 5.0
+height = 24.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8gci1"]
 animations = [{
@@ -17,12 +18,41 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljlcp"]
+radius = 3.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gad07"]
+radius = 4.0
+height = 16.0
+
 [node name="enemy" type="CharacterBody2D"]
+self_modulate = Color(1, 0.13333334, 0.023529412, 1)
 top_level = true
 script = ExtResource("1_td0e1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_td0e1")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_kmoat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gci1")
+
+[node name="idle_timer" type="Timer" parent="."]
+
+[node name="rand_Move_Timer" type="Timer" parent="."]
+
+[node name="headshot_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="headshot_detect"]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_ljlcp")
+
+[node name="bodyshot_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyshot_detect"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_gad07")
+
+[connection signal="timeout" from="idle_timer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="rand_Move_Timer" to="." method="_on_rand_move_timer_timeout"]
+[connection signal="area_entered" from="headshot_detect" to="." method="_on_headshot_detect_area_entered"]

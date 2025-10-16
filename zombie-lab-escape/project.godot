@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SpawnerGlobal="*res://scripts/spawner_global.gd"
 
+[global_group]
+
+bullet=""
+
 [input]
 
 up={

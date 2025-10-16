@@ -1,15 +1,19 @@
 extends CharacterBody2D
+var health = 50
 var player_detected = false
+var is_shot = false
 var direction
 var player
-var SPEED = 70
+var SPEED = 30
 var random_direction
- 
+var bullet
 enum state {
 	IDLE,
 	CHASE,
 	WANDER,
 	ATTACK,
+	HURT,
+	DEAD,
 	}
 @onready var current_state = state.IDLE
 @onready var idle_timer : Timer =  $idle_timer
@@ -26,6 +30,10 @@ func _physics_process(delta: float) -> void:
 			handle_attack(delta)
 		state.CHASE:
 			handle_chase(delta)
+		state.HURT:
+			handle_hurt(delta)
+		state.DEAD:
+			handle_death()
 	move_and_slide()
 	
 	
@@ -36,7 +44,7 @@ func handle_idle(_delta):
 	
 	
 
-func handle_chase(_delta):
+func handle_chase(delta):
 	if player_detected == true:
 		direction =  (player.global_position - self.global_position).normalized()
 		velocity = direction * SPEED
@@ -46,12 +54,12 @@ func handle_chase(_delta):
 		velocity = Vector2.ZERO
 		current_state = state.IDLE
 
-func handle_wander(_delta):
+func handle_wander(delta):
 	if player_detected:
 		current_state = state.CHASE
 		return
 	
-	velocity = random_direction * SPEED
+	velocity = random_direction.normalized() * SPEED
 	
 
 func randomize_direction():
@@ -69,6 +77,12 @@ func handle_attack(_delta):
 	velocity = Vector2.ZERO
 	#add cooldown timer for attack 
 
+func handle_hurt(_delta):
+	health -= 10
+	if health <= 0:
+		current_state = state.DEAD
+func handle_death():
+	self.queue_free()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -97,3 +111,11 @@ func _on_idle_timer_timeout() -> void:
 func _on_attack_cooldow_timer_timeout() -> void:
 	$enemy_hitbox.visible = false
 	current_state = state.IDLE
+
+
+func _on_headshot_detect_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		bullet = area
+		is_shot = true
+		current_state = state.HURT
+		
