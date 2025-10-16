@@ -1,10 +1,12 @@
 extends CharacterBody2D
 var health = 50
 var player_detected = false
-var is_shot = false
+var is_headshot = false
+var is_bodyshot = false
 var direction
 var player
-var SPEED = 30
+var SPEED = 40
+var wander_speed = 10
 var random_direction
 var bullet
 enum state {
@@ -44,7 +46,7 @@ func handle_idle(_delta):
 	
 	
 
-func handle_chase(delta):
+func handle_chase(_delta):
 	if player_detected == true:
 		direction =  (player.global_position - self.global_position).normalized()
 		velocity = direction * SPEED
@@ -54,7 +56,7 @@ func handle_chase(delta):
 		velocity = Vector2.ZERO
 		current_state = state.IDLE
 
-func handle_wander(delta):
+func handle_wander(_delta):
 	if player_detected:
 		current_state = state.CHASE
 		return
@@ -70,18 +72,22 @@ func randomize_direction():
 
 
 func handle_attack(_delta):
-	
-	$enemy_hitbox.visible = false
-	$attack_cooldow_timer.start()
+	print("attacking")
 	$enemy_hitbox.visible = true
+	$attack_cooldown_timer.start()
 	velocity = Vector2.ZERO
-	#add cooldown timer for attack 
+	 
 
 func handle_hurt(_delta):
-	health -= 10
+	if is_headshot == true:
+		health -= 10
+	elif is_bodyshot == true:
+		health -= 5
 	if health <= 0:
 		current_state = state.DEAD
 func handle_death():
+	SpawnerGlobal.nz_spawn_number -= 1
+	print("dead",SpawnerGlobal.nz_spawn_number)
 	self.queue_free()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
@@ -108,14 +114,35 @@ func _on_idle_timer_timeout() -> void:
 	wander_timer.start()
 
 
-func _on_attack_cooldow_timer_timeout() -> void:
-	$enemy_hitbox.visible = false
-	current_state = state.IDLE
-
 
 func _on_headshot_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		bullet = area
-		is_shot = true
+		is_headshot = true
 		current_state = state.HURT
+
+
+func _on_bodyshot_detect_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		bullet = area
+		is_bodyshot=true
+		current_state = state.HURT
+
+
+func _on_bodyshot_detect_area_exited(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		bullet = null
+		is_bodyshot=false
 		
+
+
+func _on_headshot_detect_area_exited(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		bullet = null
+		is_headshot = false
+		
+
+
+func _on_attack_cooldown_timer_timeout() -> void:
+	$enemy_hitbox.visible = false
+	current_state = state.IDLE
