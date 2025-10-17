@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 5.0
-height = 54.0
+height = 60.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
 atlas = ExtResource("3_lvxji")
@@ -60,6 +60,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
+radius = 13.0
+height = 58.0
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 speed = 150
@@ -86,5 +90,12 @@ one_shot = true
 [node name="pistol" parent="." instance=ExtResource("3_gmlin")]
 position = Vector2(-10, 0)
 
+[node name="damage_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource("CapsuleShape2D_gmlin")
+
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="shooting_cooldown" to="." method="_on_shooting_cooldown_timeout"]
+[connection signal="area_entered" from="damage_area" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_exited" from="damage_area" to="." method="_on_damage_area_area_exited"]

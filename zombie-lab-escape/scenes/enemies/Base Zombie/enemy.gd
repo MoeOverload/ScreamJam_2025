@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 50
+var health = 20
 var player_detected = false
 var is_headshot = false
 var is_bodyshot = false
@@ -60,6 +60,7 @@ func handle_wander(_delta):
 	if player_detected:
 		current_state = state.CHASE
 		return
+	
 	velocity = random_direction.normalized() * wander_speed
 	
 
@@ -71,6 +72,7 @@ func randomize_direction():
 
 
 func handle_attack(_delta):
+	
 	$enemy_hitbox.visible = true
 	$attack_cooldown_timer.start()
 	
@@ -112,6 +114,9 @@ func _on_rand_move_timer_timeout():
 	idle_timer.start()
 
 
+	
+
+
 
 func _on_headshot_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
@@ -145,3 +150,11 @@ func _on_attack_cooldown_timer_timeout() -> void:
 	# add global health for player
 	$enemy_hitbox.visible = false
 	current_state = state.IDLE
+
+
+
+
+
+func _on_rand_move_timer_timeout() -> void:
+	current_state = state.IDLE
+	idle_timer.start()
