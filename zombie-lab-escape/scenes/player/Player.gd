@@ -10,6 +10,7 @@ var direction
 @export var player_health = 200
 @export var speed = 200
 @export var dash_duration = 0.2  # Duration of the dash in seconds
+@onready var anim = $AnimatedSprite2D
 
 var can_dash = true
 var can_fire = true
@@ -41,6 +42,11 @@ func dash():
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
+	if velocity == Vector2.ZERO:
+		anim.play("idle")
+	elif input_direction.y > 0:
+		anim.play("run_down")
+
 
 	if is_dashing:
 		velocity = input_direction.normalized() * dash_multiplier  * speed
