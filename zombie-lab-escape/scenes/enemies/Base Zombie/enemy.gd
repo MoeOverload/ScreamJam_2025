@@ -36,7 +36,25 @@ func _physics_process(delta: float) -> void:
 			handle_hurt(delta)
 		state.DEAD:
 			handle_death()
+	update_animation() # ← universal animation call after all movement logic
 	move_and_slide()
+
+func update_animation():
+	var anim = $AnimatedSprite2D
+	if velocity.length() == 0:
+		anim.play("idle")
+	else:
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x > 0:
+				anim.play("run_right")
+			else:
+				anim.play("run_left")
+		else:
+			if velocity.y > 0:
+				anim.play("run_down")
+			else:
+				anim.play("run_up")
+
 	
 	
 		
