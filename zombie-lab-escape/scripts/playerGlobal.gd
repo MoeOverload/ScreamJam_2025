@@ -3,6 +3,7 @@ var player_dead = false
 var p_Health
 var anti_pickup = false
 var item_taken = false
+var health_recieved = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
