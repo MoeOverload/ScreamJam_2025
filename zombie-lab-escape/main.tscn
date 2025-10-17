@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://nyijvpywubmx"]
+[gd_scene load_steps=9 format=4 uid="uid://nyijvpywubmx"]
 
 [ext_resource type="TileSet" uid="uid://cxkwhxbxr4kk1" path="res://Scream_Jam_2025_Art/Environment/TileSetLaboratoryv2_ByOleteras/lab_tileset.tres" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c3k1h1u73t2dy" path="res://scripts/camera_follow_script.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cdrt0fpl2gi5f" path="res://scenes/player/player.tscn" id="2_h2yge"]
 [ext_resource type="TileSet" uid="uid://cv54l8xhgw3xj" path="res://Scream_Jam_2025_Art/Environment/Ground_Bushes_etc/bofas_tileset.tres" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://s5xt8i1kitx8" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://brjnsrgcvmkt" path="res://player_health.gd" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://bobcnl6p1eyxd" path="res://pause_menu.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://cmngq0o0svgps" path="res://death_menu.gd" id="7_272bh"]
 
@@ -160,19 +161,22 @@ offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Camera2D/player_hud"]
 layout_mode = 0
-offset_left = 114.0
+offset_left = 79.0
 offset_top = -108.0
-offset_right = 192.0
-offset_bottom = -91.0
+offset_right = 157.0
+offset_bottom = -85.0
 
 [node name="player_health" type="Label" parent="Camera2D/player_hud/PanelContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
+script = ExtResource("6_5vw27")
 
 [node name="PanelContainer2" type="PanelContainer" parent="Camera2D/player_hud"]
+texture_filter = 1
 layout_mode = 0
-offset_left = -192.0
+offset_left = -156.0
 offset_top = -108.0
-offset_right = -114.0
+offset_right = -78.0
 offset_bottom = -85.0
 
 [node name="day_counter" type="Label" parent="Camera2D/player_hud/PanelContainer2"]
