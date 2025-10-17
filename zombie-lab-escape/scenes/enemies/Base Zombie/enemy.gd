@@ -144,7 +144,6 @@ func _on_headshot_detect_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_cooldown_timer_timeout() -> void:
-	# add global health for player
 	$enemy_hitbox.visible = false
 	current_state = state.IDLE
 

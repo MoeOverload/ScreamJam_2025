@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdrt0fpl2gi5f"]
+[gd_scene load_steps=13 format=3 uid="uid://cdrt0fpl2gi5f"]
 
 [ext_resource type="Script" uid="uid://saicthmx7j5u" path="res://scenes/player/Player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream_Jam_2025_Art/Player/playersprite.png" id="2_dovo2"]
@@ -81,7 +81,7 @@ animation = &"run_down"
 frame_progress = 0.36959732
 
 [node name="dash_cooldown" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.041
 
 [node name="shooting_cooldown" type="Timer" parent="."]
 wait_time = 0.2

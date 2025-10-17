@@ -7,7 +7,7 @@ var enemy
 var damaged = false
 var direction 
 
-@export var player_health = 200
+@onready var player_health = 200
 @export var speed = 200
 @export var dash_duration = 0.2  # Duration of the dash in seconds
 @onready var anim = $AnimatedSprite2D
@@ -20,13 +20,15 @@ var dash_multiplier = 1.8
 var is_dashing
 
 func death():
-	pass
+	#play anim
+	PlayerGlobal.player_dead = true
+
 
 func player_hit():
 	if damaged == true:
 		player_health -= 20
 		direction = (enemy.global_position + self.global_position).normalized()
-		velocity = (direction * speed )* 300
+		velocity = direction * speed * 300
 		print(player_health)
 		damaged = false 
 
@@ -53,7 +55,7 @@ func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
 	if velocity == Vector2.ZERO:
-		anim.play("idle")
+		anim.play("default")
 	elif input_direction.y > 0:
 		anim.play("run_down")
 
@@ -64,6 +66,8 @@ func get_input(delta):
 		if dash_timer <= 0:
 			is_dashing = false
 func _physics_process(delta):
+	if player_health <= 0:
+		death()
 	if damaged == true:
 		player_hit()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_fire:
