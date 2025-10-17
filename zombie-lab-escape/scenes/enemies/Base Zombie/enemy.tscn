@@ -50,6 +50,7 @@ one_shot = true
 
 [node name="rand_Move_Timer" type="Timer" parent="."]
 wait_time = 2.0
+
 [node name="rand_move_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -74,7 +75,6 @@ shape = SubResource("CircleShape2D_kmoat")
 [node name="attack_cooldown_timer" type="Timer" parent="."]
 
 [node name="enemy_hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
-[node name="enemy_hitbox" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
