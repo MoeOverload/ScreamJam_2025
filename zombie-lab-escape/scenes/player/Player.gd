@@ -10,6 +10,7 @@ var direction
 @export var player_health = 200
 @export var speed = 200
 @export var dash_duration = 0.2  # Duration of the dash in seconds
+@onready var anim = $AnimatedSprite2D
 
 var can_dash = true
 var can_fire = true
@@ -18,6 +19,16 @@ var dash_timer = 0.0
 var dash_multiplier = 1.8
 var is_dashing
 
+func death():
+	pass
+
+func player_hit():
+	if damaged == true:
+		player_health -= 20
+		direction = (enemy.global_position + self.global_position).normalized()
+		velocity = (direction * speed )* 300
+		print(player_health)
+		damaged = false 
 
 func shoot():
 	var bullet_scene = preload("res://scenes/bullet/bullet.tscn")
@@ -41,6 +52,11 @@ func dash():
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
+	if velocity == Vector2.ZERO:
+		anim.play("idle")
+	elif input_direction.y > 0:
+		anim.play("run_down")
+
 
 	if is_dashing:
 		velocity = input_direction.normalized() * dash_multiplier  * speed
@@ -48,6 +64,8 @@ func get_input(delta):
 		if dash_timer <= 0:
 			is_dashing = false
 func _physics_process(delta):
+	if damaged == true:
+		player_hit()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_fire:
 		shoot()
 	if Input.is_action_just_pressed("dash") and can_dash:
@@ -73,15 +91,10 @@ func _on_damage_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group('enemy_hitbox'):
 		enemy = area
 		damaged = true
-		#current_state = State.damaged
+		
 		
 
-func player_hit():
-	player_health -= 20
-	direction = (enemy.global_position + self.global_position).normalized()
-	velocity = (direction * speed )* 300
-	print(player_health)
-	damaged = false 
+
 
 func _on_shooting_cooldown_timeout() -> void:
 	can_fire = true
@@ -91,3 +104,4 @@ func _on_shooting_cooldown_timeout() -> void:
 func _on_damage_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group('enemy_hitbox'):
 		enemy = null
+		damaged = false

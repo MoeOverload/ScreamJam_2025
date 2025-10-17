@@ -25,6 +25,7 @@ bullet=""
 Player=""
 nz_enemy_head=""
 nz_enemy_body=""
+enemy_hitbox=""
 
 [input]
 

@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmoat"]
 radius = 5.0
-height = 24.0
+height = 28.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8gci1"]
 animations = [{
@@ -38,7 +38,7 @@ texture_filter = 1
 script = ExtResource("1_td0e1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_kmoat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -48,6 +48,8 @@ sprite_frames = SubResource("SpriteFrames_8gci1")
 wait_time = 4.0
 one_shot = true
 
+[node name="rand_Move_Timer" type="Timer" parent="."]
+wait_time = 2.0
 [node name="rand_move_timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -71,6 +73,7 @@ shape = SubResource("CircleShape2D_kmoat")
 
 [node name="attack_cooldown_timer" type="Timer" parent="."]
 
+[node name="enemy_hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
 [node name="enemy_hitbox" type="Area2D" parent="."]
 visible = false
 
