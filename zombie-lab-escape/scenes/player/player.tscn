@@ -1,12 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdrt0fpl2gi5f"]
+[gd_scene load_steps=12 format=3 uid="uid://cdrt0fpl2gi5f"]
 
 [ext_resource type="Script" uid="uid://saicthmx7j5u" path="res://scenes/player/Player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream_Jam_2025_Art/Player/playersprite.png" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://btrmqghaekm2n" path="res://scenes/pistol.tscn" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ckvyb3i3y46wb" path="res://Scream_Jam_2025_Art/Player/run_down_spritesheet.png" id="3_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 5.0
 height = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("3_lvxji")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+atlas = ExtResource("3_lvxji")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
+atlas = ExtResource("3_lvxji")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
+atlas = ExtResource("3_lvxji")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
+atlas = ExtResource("3_lvxji")
+region = Rect2(128, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
 animations = [{
@@ -16,6 +37,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p47bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0owmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qek5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gtgg")
+}],
+"loop": true,
+"name": &"run_down",
 "speed": 5.0
 }]
 
@@ -36,6 +77,8 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_p47bc")
+animation = &"run_down"
+frame_progress = 0.36959732
 
 [node name="dash_cooldown" type="Timer" parent="."]
 wait_time = 2.0
@@ -45,7 +88,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="pistol" parent="." instance=ExtResource("3_gmlin")]
-position = Vector2(-2, -11)
+position = Vector2(-10, 0)
 
 [node name="damage_area" type="Area2D" parent="."]
 

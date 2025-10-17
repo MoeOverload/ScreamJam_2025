@@ -19,7 +19,7 @@ enum state {
 	}
 @onready var current_state = state.IDLE
 @onready var idle_timer : Timer =  $idle_timer
-@onready var wander_timer : Timer = $rand_Move_Timer
+@onready var wander_timer : Timer = $rand_move_timer
 func _ready() -> void:
 	idle_timer.start()
 func _physics_process(delta: float) -> void:
@@ -50,7 +50,7 @@ func handle_chase(_delta):
 	if player_detected == true:
 		direction =  (player.global_position - self.global_position).normalized()
 		velocity = direction * SPEED
-		if player.global_position.distance_to(self.global_position) <= 20.00:
+		if player.global_position.distance_to(self.global_position) <= 10.00:
 			current_state = state.ATTACK
 	else:
 		velocity = Vector2.ZERO
@@ -75,7 +75,7 @@ func handle_attack(_delta):
 	
 	$enemy_hitbox.visible = true
 	$attack_cooldown_timer.start()
-	velocity = Vector2.ZERO
+	
 	 
 
 func handle_hurt(_delta):
@@ -108,6 +108,10 @@ func _on_idle_timer_timeout():
 	current_state = state.WANDER
 	randomize_direction()
 	wander_timer.start()
+
+func _on_rand_move_timer_timeout():
+	current_state = state.IDLE
+	idle_timer.start()
 
 
 	
@@ -143,6 +147,7 @@ func _on_headshot_detect_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_cooldown_timer_timeout() -> void:
+	# add global health for player
 	$enemy_hitbox.visible = false
 	current_state = state.IDLE
 
