@@ -19,6 +19,9 @@ var dash_timer = 0.0
 var dash_multiplier = 1.8
 var is_dashing
 
+func _ready() -> void:
+	PlayerGlobal.p_Health = player_health
+
 func death():
 	#play anim
 	PlayerGlobal.player_dead = true
@@ -29,7 +32,7 @@ func player_hit():
 		player_health -= 20
 		direction = (enemy.global_position + self.global_position).normalized()
 		velocity = direction * speed * 300
-		print(player_health)
+		PlayerGlobal.p_Health = player_health
 		damaged = false 
 
 func shoot():
