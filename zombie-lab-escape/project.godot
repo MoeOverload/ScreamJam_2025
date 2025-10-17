@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="zombie Lab Escape"
-run/main_scene="uid://nyijvpywubmx"
+run/main_scene="uid://pv7lfa1sdva6"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,7 @@ bullet=""
 Player=""
 nz_enemy_head=""
 nz_enemy_body=""
+enemy_hitbox=""
 
 [input]
 

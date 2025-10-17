@@ -18,6 +18,6 @@ func _on_spawn_timer_timeout() -> void:
 		return
 	var new_zombie = n_zombie.instantiate()
 	get_tree().current_scene.add_child(new_zombie)
-	new_zombie.position = $Marker2D.position
+	new_zombie.position = self.position
 	SpawnerGlobal.nz_spawn_number += 1
 	print("spawning number",SpawnerGlobal.nz_spawn_number)

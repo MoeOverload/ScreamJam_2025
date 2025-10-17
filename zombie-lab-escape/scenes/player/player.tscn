@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdrt0fpl2gi5f"]
+[gd_scene load_steps=7 format=3 uid="uid://cdrt0fpl2gi5f"]
 
 [ext_resource type="Script" uid="uid://saicthmx7j5u" path="res://scenes/player/Player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream_Jam_2025_Art/Player/playersprite.png" id="2_dovo2"]
@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 5.0
-height = 54.0
+height = 60.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
 animations = [{
@@ -18,6 +18,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
+radius = 13.0
+height = 58.0
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
@@ -43,5 +47,12 @@ one_shot = true
 [node name="pistol" parent="." instance=ExtResource("3_gmlin")]
 position = Vector2(-2, -11)
 
+[node name="damage_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource("CapsuleShape2D_gmlin")
+
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="shooting_cooldown" to="." method="_on_shooting_cooldown_timeout"]
+[connection signal="area_entered" from="damage_area" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_exited" from="damage_area" to="." method="_on_damage_area_area_exited"]
