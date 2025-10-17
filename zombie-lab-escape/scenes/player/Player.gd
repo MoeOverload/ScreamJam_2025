@@ -30,6 +30,7 @@ func heal():
 	
 func handle_anti_pickup():
 	PlayerGlobal.item_taken = true
+	PlayerGlobal.can_be_safe = true
 
 
 func death():
@@ -144,6 +145,7 @@ func _on_pickup_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("antidote"):
 		antidote = area
 		PlayerGlobal.anti_pickup = true
+		
 	if area.is_in_group("healthpack"):
 		health_pack = area
 		
