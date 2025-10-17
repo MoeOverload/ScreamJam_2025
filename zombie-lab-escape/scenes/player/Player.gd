@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #build a player state machine using enum
 
-
+var antidote
 var enemy
 var damaged = false
 var direction 
@@ -18,6 +18,9 @@ var can_fire = true
 var dash_timer = 0.0
 var dash_multiplier = 1.8
 var is_dashing
+func _ready() -> void:
+	PlayerGlobal.p_Health = player_health
+
 
 func _ready() -> void:
 	PlayerGlobal.p_Health = player_health
@@ -81,6 +84,8 @@ func get_input(delta):
 		if dash_timer <= 0:
 			is_dashing = false
 func _physics_process(delta):
+	if Input.is_action_just_pressed("pickup") and PlayerGlobal.anti_pickup == true:
+		handle_anti_pickup()
 	if player_health <= 0:
 		death()
 	if damaged == true:
@@ -124,3 +129,15 @@ func _on_damage_area_area_exited(area: Area2D) -> void:
 	if area.is_in_group('enemy_hitbox'):
 		enemy = null
 		damaged = false
+
+
+func _on_pickup_detect_area_entered(area: Area2D) -> void:
+	if area.is_in_group("antidote"):
+		antidote = area
+		PlayerGlobal.anti_pickup = true
+
+
+func _on_pickup_detect_area_exited(area: Area2D) -> void:
+	if area.is_in_group("antidote"):
+		PlayerGlobal.anti_pickup = false
+		antidote = null

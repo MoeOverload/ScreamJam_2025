@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://s5xt8i1kitx8" path="res://scenes/enemySpawner/enemy_spawner.tscn" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://brjnsrgcvmkt" path="res://player_health.gd" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://bobcnl6p1eyxd" path="res://pause_menu.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://drongk0i5kanx" path="res://scripts/panel_container_3.gd" id="7_4c57u"]
 [ext_resource type="Script" uid="uid://cmngq0o0svgps" path="res://death_menu.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://bt51cyh6pec3s" path="res://scenes/antidote/antidote_vile.tscn" id="9_kek77"]
 
 [node name="main" type="Node2D"]
 
@@ -154,6 +156,7 @@ theme_override_font_sizes/font_size = 12
 text = "Quit To Menu"
 
 [node name="player_hud" type="Control" parent="Camera2D"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -182,10 +185,28 @@ offset_bottom = -85.0
 [node name="day_counter" type="Label" parent="Camera2D/player_hud/PanelContainer2"]
 layout_mode = 2
 
+[node name="PanelContainer3" type="PanelContainer" parent="Camera2D/player_hud"]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 29.0
+offset_top = 25.0
+offset_right = 188.0
+offset_bottom = 50.0
+script = ExtResource("7_4c57u")
+
+[node name="Label" type="Label" parent="Camera2D/player_hud/PanelContainer3"]
+layout_mode = 2
+text = "Press \"E\" To Pick -Up"
+
 [node name="player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(0, 2)
 
 [node name="enemySpawner" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(-91, 398)
+
+[node name="antidote_vile" parent="." instance=ExtResource("9_kek77")]
+position = Vector2(816.99994, 2.9999998)
 
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer3/play_button" to="Camera2D/pauseMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer2/settingsButton" to="Camera2D/pauseMenu" method="_on_settings_button_pressed"]

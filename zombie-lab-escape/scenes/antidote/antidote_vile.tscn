@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt51cyh6pec3s"]
+
+[ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="1_5jdra"]
+[ext_resource type="Script" uid="uid://bl3pnnex2fxt5" path="res://scenes/antidote/antidote_vile.gd" id="2_esgop"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_esgop"]
+radius = 5.189187
+height = 44.97297
+
+[node name="antidote_vile" type="Sprite2D"]
+modulate = Color(0.23137255, 1, 0, 1)
+texture_filter = 1
+position = Vector2(-9.536743e-07, 7.1054274e-15)
+scale = Vector2(0.0265625, 0.0578125)
+texture = ExtResource("1_5jdra")
+script = ExtResource("2_esgop")
+
+[node name="Area2D" type="Area2D" parent="." groups=["antidote"]]
+position = Vector2(3.0517578e-05, -2.2737368e-13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12.108109)
+shape = SubResource("CapsuleShape2D_esgop")
