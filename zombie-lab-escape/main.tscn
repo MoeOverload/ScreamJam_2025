@@ -152,6 +152,32 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Quit To Menu"
 
+[node name="player_hud" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/player_hud"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = -108.0
+offset_right = 192.0
+offset_bottom = -91.0
+
+[node name="player_health" type="Label" parent="Camera2D/player_hud/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Camera2D/player_hud"]
+layout_mode = 0
+offset_left = -192.0
+offset_top = -108.0
+offset_right = -114.0
+offset_bottom = -85.0
+
+[node name="day_counter" type="Label" parent="Camera2D/player_hud/PanelContainer2"]
+layout_mode = 2
+
 [node name="player" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="enemySpawner" parent="." instance=ExtResource("5_lquwl")]
