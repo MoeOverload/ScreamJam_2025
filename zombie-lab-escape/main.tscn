@@ -224,7 +224,7 @@ position = Vector2(-91, 398)
 [node name="antidote_vile" parent="." instance=ExtResource("9_kek77")]
 position = Vector2(816.99994, 2.9999998)
 
-[node name="healthPack" parent="." instance=ExtResource("12_ycdy4")]
+[node name="healthPack" parent="." groups=["healthpack"] instance=ExtResource("12_ycdy4")]
 position = Vector2(139.99998, 402.99997)
 
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer3/play_button" to="Camera2D/pauseMenu" method="_on_play_button_pressed"]
