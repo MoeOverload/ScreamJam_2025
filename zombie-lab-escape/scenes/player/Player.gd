@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 #build a player state machine using enum
-
+var health_pack
+var player_healed
 var antidote
 var enemy
 var damaged = false
@@ -18,12 +19,18 @@ var can_fire = true
 var dash_timer = 0.0
 var dash_multiplier = 1.8
 var is_dashing
-func _ready() -> void:
-	PlayerGlobal.p_Health = player_health
-
 
 func _ready() -> void:
 	PlayerGlobal.p_Health = player_health
+
+func heal():
+	player_health += 40
+	PlayerGlobal.p_Health = player_health
+	PlayerGlobal.health_recieved = false
+	
+func handle_anti_pickup():
+	PlayerGlobal.item_taken = true
+
 
 func death():
 	#play anim
@@ -84,6 +91,8 @@ func get_input(delta):
 		if dash_timer <= 0:
 			is_dashing = false
 func _physics_process(delta):
+	if player_healed == true and PlayerGlobal.health_recieved == false:
+		heal()
 	if Input.is_action_just_pressed("pickup") and PlayerGlobal.anti_pickup == true:
 		handle_anti_pickup()
 	if player_health <= 0:
@@ -135,9 +144,15 @@ func _on_pickup_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("antidote"):
 		antidote = area
 		PlayerGlobal.anti_pickup = true
-
+	if area.is_in_group("healthpack"):
+		health_pack = area
+		if health_pack.global_position.distance_to(self.global_position) <= 2:
+			player_healed = true
 
 func _on_pickup_detect_area_exited(area: Area2D) -> void:
 	if area.is_in_group("antidote"):
 		PlayerGlobal.anti_pickup = false
 		antidote = null
+	if area.is_in_group("healthpack"):
+		health_pack = null
+		player_healed = false
