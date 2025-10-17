@@ -55,9 +55,21 @@ func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
 	if velocity == Vector2.ZERO:
-		anim.play("default")
+		anim.play("idle")
+		$pistol.visible = true
 	elif input_direction.y > 0:
 		anim.play("run_down")
+		$pistol.visible = true
+	elif input_direction.y < 0:
+		anim.play("run_up")
+		$pistol.visible = false
+	elif input_direction.x > 0:
+		anim.play("run_right")
+		$pistol.visible = true
+	elif input_direction.x < 0:
+		anim.play("run_left")
+		$pistol.visible = true
+
 
 
 	if is_dashing:
