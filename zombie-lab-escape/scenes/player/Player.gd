@@ -24,9 +24,9 @@ func _ready() -> void:
 	PlayerGlobal.p_Health = player_health
 
 func heal():
-	player_health += 40
-	PlayerGlobal.p_Health = player_health
-	PlayerGlobal.health_recieved = false
+	if player_health <= 200:
+		player_health += PlayerGlobal.heal_amount
+		PlayerGlobal.p_Health = player_health
 	
 func handle_anti_pickup():
 	PlayerGlobal.item_taken = true
@@ -91,7 +91,7 @@ func get_input(delta):
 		if dash_timer <= 0:
 			is_dashing = false
 func _physics_process(delta):
-	if player_healed == true and PlayerGlobal.health_recieved == false:
+	if PlayerGlobal.health_recieved == true:
 		heal()
 	if Input.is_action_just_pressed("pickup") and PlayerGlobal.anti_pickup == true:
 		handle_anti_pickup()
@@ -146,8 +146,7 @@ func _on_pickup_detect_area_entered(area: Area2D) -> void:
 		PlayerGlobal.anti_pickup = true
 	if area.is_in_group("healthpack"):
 		health_pack = area
-		if health_pack.global_position.distance_to(self.global_position) <= 2:
-			player_healed = true
+		
 
 func _on_pickup_detect_area_exited(area: Area2D) -> void:
 	if area.is_in_group("antidote"):
@@ -155,4 +154,4 @@ func _on_pickup_detect_area_exited(area: Area2D) -> void:
 		antidote = null
 	if area.is_in_group("healthpack"):
 		health_pack = null
-		player_healed = false
+		PlayerGlobal.health_recieved = false

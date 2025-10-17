@@ -1,5 +1,5 @@
-extends Sprite2D
-
+extends Node2D
+var player_safe = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,32 +7,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	
-		
-		
-	
-		self.visible = true
-
-
-
-	
-
-
-	
-		
-		
+func _process(delta: float) -> void:
+	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		var _player = body
-		PlayerGlobal.health_recieved = true
-		self.visible = false
-		self.queue_free()
+		pass
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		var _player = null
-		
+	pass # Replace with function body.
