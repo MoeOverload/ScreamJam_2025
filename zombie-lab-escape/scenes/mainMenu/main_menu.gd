@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("D:/ScreamJam/ScreamJam_2025/zombie-lab-escape/main.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_settings_button_pressed() -> void:

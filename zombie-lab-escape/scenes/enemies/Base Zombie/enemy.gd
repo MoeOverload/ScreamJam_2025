@@ -109,9 +109,6 @@ func _on_idle_timer_timeout():
 	randomize_direction()
 	wander_timer.start()
 
-func _on_rand_move_timer_timeout():
-	current_state = state.IDLE
-	idle_timer.start()
 
 
 	
