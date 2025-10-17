@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cdrt0fpl2gi5f"]
+[gd_scene load_steps=32 format=3 uid="uid://cdrt0fpl2gi5f"]
 
 [ext_resource type="Script" uid="uid://saicthmx7j5u" path="res://scenes/player/Player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b5c6m1evv44ef" path="res://Scream_Jam_2025_Art/Player/playersprite.png" id="2_dovo2"]
@@ -187,6 +187,9 @@ animations = [{
 radius = 13.0
 height = 58.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0owmy"]
+radius = 36.124783
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 speed = 150
@@ -217,7 +220,15 @@ position = Vector2(-10, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
 shape = SubResource("CapsuleShape2D_gmlin")
 
+[node name="pickup_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_detect"]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_0owmy")
+
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="shooting_cooldown" to="." method="_on_shooting_cooldown_timeout"]
 [connection signal="area_entered" from="damage_area" to="." method="_on_damage_area_area_entered"]
 [connection signal="area_exited" from="damage_area" to="." method="_on_damage_area_area_exited"]
+[connection signal="area_entered" from="pickup_detect" to="." method="_on_pickup_detect_area_entered"]
+[connection signal="area_exited" from="pickup_detect" to="." method="_on_pickup_detect_area_exited"]
