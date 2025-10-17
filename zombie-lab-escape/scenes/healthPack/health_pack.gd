@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var _player = body
+		PlayerGlobal.health_recieved = true
 		self.visible = false
 		self.queue_free()
 
@@ -34,3 +35,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var _player = null
+		
