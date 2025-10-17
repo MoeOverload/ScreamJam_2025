@@ -1,5 +1,6 @@
 extends Node2D
-var player_safe = false
+
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,14 +8,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		player = body 
+		PlayerGlobal.can_vile_pickup = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.is_in_group("Player"):
+		player = null 

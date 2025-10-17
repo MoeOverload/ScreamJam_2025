@@ -3,16 +3,14 @@ extends Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if PlayerGlobal.can_vile_pickup == false:
-		self.visible = false
-	if PlayerGlobal.item_taken == true:
-		
-		self.visible = false
-		self.queue_free()
-	else:
+	if PlayerGlobal.can_be_safe == false:
 		self.visible = true
+		
+		
+	else:
+		self.visible = false

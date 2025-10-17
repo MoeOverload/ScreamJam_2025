@@ -5,6 +5,8 @@ var anti_pickup = false
 var item_taken = false
 var health_recieved = false
 var heal_amount = 40
+var can_be_safe = false
+var can_vile_pickup = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

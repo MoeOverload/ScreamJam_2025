@@ -8,6 +8,7 @@ radius = 5.189187
 height = 44.97297
 
 [node name="antidote_vile" type="Sprite2D" groups=["antidote"]]
+visible = false
 modulate = Color(0.23137255, 1, 0, 1)
 texture_filter = 1
 position = Vector2(-9.536743e-07, 7.1054274e-15)
