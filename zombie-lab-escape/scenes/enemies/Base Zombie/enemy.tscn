@@ -156,7 +156,7 @@ animations = [{
 }, {
 "frames": [],
 "loop": true,
-"name": &"walk_up",
+"name": &"run_up",
 "speed": 5.0
 }]
 
@@ -168,7 +168,7 @@ radius = 4.0
 height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmoat"]
-radius = 45.01111
+radius = 162.2498
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmoat"]
 size = Vector2(11, 26)
@@ -185,7 +185,7 @@ shape = SubResource("CapsuleShape2D_kmoat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gci1")
-animation = &"walk_up"
+animation = &"run_up"
 
 [node name="idle_timer" type="Timer" parent="."]
 wait_time = 4.0
