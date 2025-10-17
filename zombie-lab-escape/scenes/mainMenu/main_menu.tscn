@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://pv7lfa1sdva6"]
+[gd_scene load_steps=2 format=3 uid="uid://iwvjuljweers"]
 
-[ext_resource type="Script" uid="uid://cbvibx8cddiwx" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
+[ext_resource type="Script" uid="uid://busdsl2n556ax" path="res://scenes/mainMenu/main_menu.gd" id="1_8jkg5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
