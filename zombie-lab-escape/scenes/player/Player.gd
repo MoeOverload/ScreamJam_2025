@@ -22,8 +22,9 @@ func _ready() -> void:
 	PlayerGlobal.p_Health = player_health
 
 
-func handle_anti_pickup():
-	PlayerGlobal.item_taken = true
+func _ready() -> void:
+	PlayerGlobal.p_Health = player_health
+
 func death():
 	#play anim
 	PlayerGlobal.player_dead = true
@@ -34,7 +35,7 @@ func player_hit():
 		player_health -= 20
 		direction = (enemy.global_position + self.global_position).normalized()
 		velocity = direction * speed * 300
-		PlayerGlobal.p_Health = player_health   
+		PlayerGlobal.p_Health = player_health
 		damaged = false 
 
 func shoot():
