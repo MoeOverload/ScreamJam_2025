@@ -136,6 +136,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_272bh")
 
+[node name="TextureRect" type="TextureRect" parent="Camera2D/death_menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_ycdy4")
+expand_mode = 3
+stretch_mode = 3
+
 [node name="PanelContainer" type="PanelContainer" parent="Camera2D/death_menu"]
 layout_mode = 0
 offset_left = -64.0
@@ -174,14 +182,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Quit To Menu"
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D/death_menu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_ycdy4")
-expand_mode = 3
-stretch_mode = 3
 
 [node name="player_hud" type="Control" parent="Camera2D"]
 z_index = 5
@@ -243,7 +243,7 @@ position = Vector2(834, 708)
 position = Vector2(410, 485)
 
 [node name="enemySpawner5" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(426, 926)
+position = Vector2(412, 808)
 
 [node name="enemySpawner6" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(153, 861)

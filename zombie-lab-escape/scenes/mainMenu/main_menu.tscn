@@ -27,7 +27,7 @@ layout_mode = 2
 [node name="TextEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 61
-text = "Obscure Title"
+text = "Zombie Laboratory"
 alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
