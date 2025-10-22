@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://teiui7gjk05v"]
+[gd_scene load_steps=4 format=3 uid="uid://teiui7gjk05v"]
 
 [ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="1_2x4g7"]
+[ext_resource type="Script" uid="uid://b1r3nejkklc1f" path="res://moving_wall_end.gd" id="2_3sou5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sou5"]
-size = Vector2(123, 112.73395)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a56an"]
+size = Vector2(68.769226, 16)
 
-[node name="falseWall" type="Sprite2D"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-1.9999999, 27.249998)
-scale = Vector2(1, 0.42578122)
+[node name="Moving_end_wall" type="Node2D"]
+
+[node name="moving_wall_end" type="Sprite2D" parent="."]
+scale = Vector2(0.35546875, 0.140625)
 texture = ExtResource("1_2x4g7")
+centered = false
+script = ExtResource("2_3sou5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="moving_wall_end"]
+position = Vector2(-7.6293945e-06, 56.888893)
+scale = Vector2(2.031746, 7.1111107)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1.5000001, -0.5871506)
-shape = SubResource("RectangleShape2D_3sou5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_wall_end/StaticBody2D"]
+position = Vector2(32.384613, 1)
+shape = SubResource("RectangleShape2D_a56an")
+
+[node name="rotate_timer" type="Timer" parent="moving_wall_end"]
+wait_time = 8.128
+one_shot = true
+
+[connection signal="timeout" from="moving_wall_end/rotate_timer" to="moving_wall_end" method="_on_rotate_timer_timeout"]

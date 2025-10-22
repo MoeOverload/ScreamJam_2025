@@ -8,9 +8,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if PlayerGlobal.can_be_safe == false:
-		self.visible = true
-		
-		
-	else:
-		self.visible = false
+	if PlayerGlobal.can_be_safe == true:
+		self.rotate(-80.0)
+		PlayerGlobal.can_be_safe = false
+		$rotate_timer.start()
+
+	return
+
+func _on_rotate_timer_timeout() -> void:
+	self.rotate(80.0)
