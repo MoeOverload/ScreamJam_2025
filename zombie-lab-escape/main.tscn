@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bt51cyh6pec3s" path="res://scenes/antidote/antidote_vile.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://dc3eugm50ha4l" path="res://antidote_spawn_thing.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dv278tljyya20" path="res://scenes/healthPack/health_pack.tscn" id="12_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://c8bworj7ryurr" path="res://false_wall.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://teiui7gjk05v" path="res://falseWall.tscn" id="13_ycdy4"]
 
 [sub_resource type="GDScript" id="GDScript_efxa6"]
 script/source = "extends Node2D
@@ -233,7 +233,7 @@ position = Vector2(139.99998, 402.99997)
 position = Vector2(628, 213)
 
 [node name="false_wall" parent="." instance=ExtResource("13_ycdy4")]
-position = Vector2(816, -40)
+position = Vector2(790, -35)
 
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer3/play_button" to="Camera2D/pauseMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer2/settingsButton" to="Camera2D/pauseMenu" method="_on_settings_button_pressed"]
