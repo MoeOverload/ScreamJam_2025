@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://nyijvpywubmx"]
+[gd_scene load_steps=16 format=4 uid="uid://nyijvpywubmx"]
 
 [ext_resource type="TileSet" uid="uid://cxkwhxbxr4kk1" path="res://Scream_Jam_2025_Art/Environment/TileSetLaboratoryv2_ByOleteras/lab_tileset.tres" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c3k1h1u73t2dy" path="res://scripts/camera_follow_script.gd" id="2_1bvp3"]
