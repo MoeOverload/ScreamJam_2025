@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SpawnerGlobal="*res://scripts/spawner_global.gd"
 PlayerGlobal="*res://scripts/playerGlobal.gd"
+SecretItemGlobal="*res://scripts/Secret_item_global.gd"
 
 [global_group]
 
