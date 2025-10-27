@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drvrtnmy0wlrx"]
+
+[ext_resource type="Texture2D" uid="uid://dnvhijcir00l2" path="res://icon.svg" id="1_2vpmy"]
+[ext_resource type="Script" uid="uid://hah8kfrja45c" path="res://doors/locked_door.gd" id="1_hgtl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgtl6"]
+size = Vector2(75.7312, 7.9999695)
+
+[node name="locked_door" type="Node2D"]
+script = ExtResource("1_hgtl6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.12156863, 0.12156863, 1, 1)
+position = Vector2(5.055789e-08, -0.15662968)
+rotation = 1.5707964
+scale = Vector2(0.46216118, 0.12499999)
+texture = ExtResource("1_2vpmy")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(64.16944, 123.99996)
+scale = Vector2(0.999999, 0.99999917)
+shape = SubResource("RectangleShape2D_hgtl6")

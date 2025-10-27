@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://nyijvpywubmx"]
+[gd_scene load_steps=18 format=4 uid="uid://nyijvpywubmx"]
 
 [ext_resource type="TileSet" uid="uid://cxkwhxbxr4kk1" path="res://Scream_Jam_2025_Art/Environment/TileSetLaboratoryv2_ByOleteras/lab_tileset.tres" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c3k1h1u73t2dy" path="res://scripts/camera_follow_script.gd" id="2_1bvp3"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dc3eugm50ha4l" path="res://antidote_spawn_thing.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dv278tljyya20" path="res://scenes/healthPack/health_pack.tscn" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://teiui7gjk05v" path="res://falseWall.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://drvrtnmy0wlrx" path="res://doors/locked_door.tscn" id="15_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dd8xiaixva51t" path="res://scenes/secret_items/secret_item_1.tscn" id="16_yaehf"]
 
 [sub_resource type="GDScript" id="GDScript_efxa6"]
 script/source = "extends Node2D
@@ -260,6 +262,12 @@ position = Vector2(628, 213)
 
 [node name="false_wall" parent="." instance=ExtResource("13_ycdy4")]
 position = Vector2(790, -35)
+
+[node name="locked_door" parent="." instance=ExtResource("15_2cqfq")]
+position = Vector2(288, 893)
+
+[node name="secret_item_1" parent="." instance=ExtResource("16_yaehf")]
+position = Vector2(142, 976)
 
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer3/play_button" to="Camera2D/pauseMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Camera2D/pauseMenu/PanelContainer/PanelContainer/VBoxContainer2/VBoxContainer/PanelContainer2/settingsButton" to="Camera2D/pauseMenu" method="_on_settings_button_pressed"]
