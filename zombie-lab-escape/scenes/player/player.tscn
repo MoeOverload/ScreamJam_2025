@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 5.0
-height = 60.0
+height = 44.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
 atlas = ExtResource("3_lvxji")
@@ -184,11 +184,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmlin"]
-radius = 13.0
-height = 58.0
+radius = 12.0
+height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0owmy"]
-radius = 36.124783
+radius = 27.018513
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
@@ -202,6 +202,7 @@ shape = SubResource("CapsuleShape2D_dovo2")
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(-1, -1)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_p47bc")
 animation = &"run_up"
 
@@ -223,7 +224,7 @@ shape = SubResource("CapsuleShape2D_gmlin")
 [node name="pickup_detect" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_detect"]
-position = Vector2(0, 15)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0owmy")
 
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

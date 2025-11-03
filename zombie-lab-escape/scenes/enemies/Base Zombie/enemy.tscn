@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmoat"]
 radius = 5.0
-height = 28.0
+height = 38.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6keu3"]
 atlas = ExtResource("3_xuu7c")
@@ -161,11 +161,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ljlcp"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gad07"]
 radius = 4.0
-height = 16.0
+height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kmoat"]
 radius = 162.2498
@@ -184,8 +184,9 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_kmoat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_8gci1")
-animation = &"run_up"
+animation = &"idle"
 
 [node name="idle_timer" type="Timer" parent="."]
 wait_time = 4.0
@@ -201,13 +202,13 @@ one_shot = true
 [node name="headshot_detect" type="Area2D" parent="." groups=["nz_enemy_head"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="headshot_detect"]
-position = Vector2(1, -6)
+position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_ljlcp")
 
 [node name="bodyshot_detect" type="Area2D" parent="." groups=["nz_enemy_body"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bodyshot_detect"]
-position = Vector2(0, 5)
+position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_gad07")
 
 [node name="player_detection" type="Area2D" parent="."]
